@@ -52,7 +52,7 @@ data_combined_mm = data_combined_mm.sort_values(by='created_at')
 data_combined_mm = data_combined_mm.drop_duplicates(subset='created_at')
 data_combined_mm.dropna(inplace=True)
 
-#print("Número de filas ACONDICIONADAS en data_combined_mm:")
+print("Número de filas ACONDICIONADAS en data_combined_mm:")
 #print(len(data_combined_mm))
 
 app = dash.Dash()
