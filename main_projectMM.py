@@ -56,7 +56,7 @@ print("Número de filas ACONDICIONADAS en data_combined_mm:")
 #print(len(data_combined_mm))
 
 app = dash.Dash()
-#server = app.server
+server = app.server
 
 font_style = {'fontFamily': 'Segoe UI, Arial, sans-serif'}
 
