@@ -54,7 +54,7 @@ data_combined_mm.dropna(inplace=True)
 
 print("Número de filas ACONDICIONADAS en data_combined_mm:")
 #print(len(data_combined_mm))
-
+data_combined_mm = data_combined_mm[::5]
 app = dash.Dash()
 server = app.server
 
@@ -64,7 +64,7 @@ app.layout = html.Div([
      html.Div([
           html.Img(src='https://upload.wikimedia.org/wikipedia/commons/d/d4/Logo-TecNM-2017.png',
                  style={'height': '200px', 'width': '300px', 'verticalAlign': 'middle', 'marginRight': '30px'}),
-          html.H1(children='Visualización de variables para SIMAR', style=font_style),
+          html.H1(children='Monitoreo de variables', style=font_style),
           ], style={'display': 'flex', 'alignItems': 'center','marginBottom': '20px'}),
           html.P(children='Instituto Tecnológico de Ciudad Guzmán'),
      
