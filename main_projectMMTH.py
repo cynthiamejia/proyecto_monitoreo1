@@ -1,6 +1,6 @@
 # Main Project - Humidity, Temperatura and CO2
-# Version 2. JAGR.
-# 18/04/24
+# Version 3.0. JAGR.
+# 28/05/2024
 import pandas as pd
 import plotly.offline as pyo
 import plotly.figure_factory as ff 
@@ -42,6 +42,11 @@ sensorth_30_3_Abr = "./Datasetth/30_3_Abr24.csv"
 sensorth_3_7_Abr = "./Datasetth/3_7_Abr24.csv"
 sensorth_26_30_Abr = "./Datasetth/26_30_Abr24.csv"
 sensorth_30_4_May = "./Datasetth/30_4_May24.csv"
+sensorth_4_8_May = "./Datasetth/4_8_May24.csv"
+sensorth_8_23_May = "./Datasetth/8_23_May24.csv"
+sensorth_23_27_May = "./Datasetth/23_27_May24.csv"
+sensorth_27_30_May = "./Datasetth/27_30_May24.csv"
+
 
 # NOTE1: Add HERE for more TH data. 
 
@@ -101,10 +106,14 @@ datath_14 = setup_sensorth(sensorth_30_3_Abr)
 datath_15 = setup_sensorth(sensorth_3_7_Abr)
 datath_16 = setup_sensorth(sensorth_26_30_Abr)
 datath_17 = setup_sensorth(sensorth_30_4_May)
+datath_18 = setup_sensorth(sensorth_4_8_May)
+datath_19 = setup_sensorth(sensorth_8_23_May)
+datath_20 = setup_sensorth(sensorth_23_27_May)
+datath_21 = setup_sensorth(sensorth_27_30_May)
 
 
 data_combined_mm = pd.concat([datamm_1, datamm_2, datamm_3, datamm_4, datamm_5, datamm_6, datamm_7, datamm_8, datamm_9, datamm_10, datamm_11, datamm_12, datamm_13, datamm_14, datamm_15, datamm_16, datamm_17])
-data_combined_th = pd.concat([datath_1, datath_2, datath_3, datath_4, datath_5, datath_6, datath_7, datath_8, datath_9, datath_10, datath_11, datath_12, datath_13, datath_14, datath_15, datath_16, datath_17])
+data_combined_th = pd.concat([datath_1, datath_2, datath_3, datath_4, datath_5, datath_6, datath_7, datath_8, datath_9, datath_10, datath_11, datath_12, datath_13, datath_14, datath_15, datath_16, datath_17, datath_18, datath_19, datath_20, datath_21])
 # NOTE3: Add data name files. 
 
 
@@ -126,8 +135,8 @@ sample_minutes = 7
 data_combined_th=data_combined_th[::sample_minutes]
 data_combined_mm=data_combined_mm[::sample_minutes]
 
-#### APLICATION ################
-
+######### APLICATION ################
+#### Version 3.0 #################### 28/05/2024
 app = dash.Dash()
 server = app.server
 
@@ -166,9 +175,7 @@ app.layout = html.Div([
      
      dcc.Graph(id='grafico_var1'),
      
-     dcc.Graph(id='grafico_var2'), 
      
-
      html.Div([
          html.Div([
              html.Label('Selección variable canal 2', style={'display': 'inline-block','fontSize': '25px','marginBottom': '20px'}),
@@ -193,6 +200,8 @@ app.layout = html.Div([
 
      dcc.Graph(id='grafico_var3'),
      
+     dcc.Graph(id='grafico_var2'),
+
      dcc.Graph(id='grafico_var4')
      
 ],style={'padding':20})
